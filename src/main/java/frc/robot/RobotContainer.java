@@ -22,6 +22,7 @@ import pabeles.concurrency.IntOperatorTask.Max;
 public class RobotContainer {
 
   CommandSwerveDrivetrain dt = TunerConstants.createDrivetrain();
+  SwerveLogger logger = new SwerveLogger(dt);
   CommandXboxController driverController = new CommandXboxController(0);
   private double MaxSpeed = TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
   private double MaxAngularRate = RotationsPerSecond.of(0.75).in(RadiansPerSecond); // 3/4 of a rotation per second max
