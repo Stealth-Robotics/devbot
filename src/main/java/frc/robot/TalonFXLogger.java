@@ -19,6 +19,7 @@ public class TalonFXLogger extends ClassSpecificLogger<TalonFX> {
         // position/velocity logging will only be opt-in for subsystems where we care
         // about that, like arm or elevator
         backend.log("Supply Current", talonFX.getSupplyCurrent().getValueAsDouble());
+        backend.log("Stator Current", talonFX.getStatorCurrent().getValueAsDouble());
         backend.log("Temp", talonFX.getDeviceTemp().getValueAsDouble());
         backend.log("Voltage", talonFX.getMotorVoltage().getValueAsDouble());
 

@@ -24,7 +24,7 @@ public class TunerConstants {
         // output type specified by SwerveModuleConstants.SteerMotorClosedLoopOutput
         private static final Slot0Configs steerGains = new Slot0Configs()
                         .withKP(50).withKI(0).withKD(0.5)
-                        .withKS(0.1).withKV(2.66).withKA(0)
+                        .withKS(0.1).withKV(0).withKA(0)
                         .withStaticFeedforwardSign(StaticFeedforwardSignValue.UseClosedLoopSign);
         // When using closed-loop control, the drive motor uses the control
         // output type specified by SwerveModuleConstants.DriveMotorClosedLoopOutput
@@ -57,7 +57,10 @@ public class TunerConstants {
         // cannot be null.
         // Some configs will be overwritten; check the `with*InitialConfigs()` API
         // documentation.
-        private static final TalonFXConfiguration driveInitialConfigs = new TalonFXConfiguration();
+        private static final TalonFXConfiguration driveInitialConfigs = new TalonFXConfiguration()
+                        .withCurrentLimits(
+                                        new CurrentLimitsConfigs().withStatorCurrentLimit(Amps.of(80))
+                                                        .withStatorCurrentLimitEnable(true));
         private static final TalonFXConfiguration steerInitialConfigs = new TalonFXConfiguration()
                         .withCurrentLimits(
                                         new CurrentLimitsConfigs()
